@@ -9,6 +9,7 @@ using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
 using Windows.UI.Xaml;
 
+//Cambiare il nome
 namespace TempProject
 {
 
