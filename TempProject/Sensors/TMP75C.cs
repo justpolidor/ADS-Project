@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TempProject.Classes;
 using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
 using Windows.UI.Xaml;
@@ -14,16 +15,6 @@ Creare una generalizzazione più elevata
 **/
 namespace TempProject
 {
-
-    //Chiedere spiegazioni 
-    interface I2CBaseInterface { }
-
-    //Classe base che verrà estesa da tutti i sensori
-    abstract class I2CBaseClass<T> : I2CBaseInterface where T : EventArgs
-    {
-        public delegate void SetSensorValue(object sender, T e);      
-    }
-
     //Classe dell'evento specifico generato per visualizzare il risultato della temperatura
     class TMP75CEventArgs : EventArgs
     {
@@ -54,10 +45,10 @@ namespace TempProject
         private const byte TMP75C_ADDRESS = 0x48;
 
         //Registro per leggere i dati della temperatura (è qui che il sensore salva i dati). Registro read-only
-        private const byte TEMP_I2C_REGISTER    = 0x00;  
+        private const byte TEMP_I2C_REGISTER = 0x00;
 
         //Metodo che inizializza il sensore
-        public async void InitI2CSensor()
+        public override async void InitI2CSensor()
         {
             try
             {
@@ -88,7 +79,7 @@ namespace TempProject
         }
 
         //Metodo che imposta il polling della temperatura sul registro specificato ogni mills
-        private void Timer_Tick(object sender, object e)
+        public override void Timer_Tick(object sender, object e)
         {
             try
             {
@@ -118,12 +109,12 @@ namespace TempProject
                 double temperature = Math.Round(rawTemperature, 2);
 
                 //Auto richiamo l'evento così da visualizzare su schermo i valori letti
-                if(Changed != null)
+                if (Changed != null)
                 {
                     //richiama il delegate e gli passo l'evento di tipo TMP75C con la temperatura letta
                     Changed(this, new TMP75CEventArgs(temperature));
                 }
-                
+
                 Debug.WriteLine(rawTempReading);
             }
             catch (Exception ex)

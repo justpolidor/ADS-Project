@@ -16,12 +16,14 @@
       <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Orientation" />
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Text" />
       <RootProperty Name="Margin" />
       <RootProperty Name="IsReadOnly" />
+      <RootProperty Name="FontSize" />
     </RootType>
     <RootType FullName="TempProject.MainPage" />
   </Roots.RootTypes>

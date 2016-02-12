@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
 using System.Diagnostics;
+using TempProject.BaseClasses;
 
 // Il modello di elemento per la pagina vuota è documentato all'indirizzo http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x410
 
@@ -27,8 +28,7 @@ namespace TempProject
     {
         private TMP75C tmp75c;
 
-        // TODO : creare una lista di sensori così da non dichiararci istanze come sopra (ma non qui...)
-        //List<I2CBaseInterface> sensors_list = new List<I2CBaseInterface>();
+        private List<I2CBaseInterface> sensors_list = new List<I2CBaseInterface>();
 
         public MainPage()
         {

@@ -8,11 +8,12 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Height="auto" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:ConnectionId='2' x:Name="TemperatureMessage" Text="Qui va la temp" Margin="10" IsReadOnly="True"></TextBox>
+        <StackPanel Height="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBox x:ConnectionId='1' x:Name="TemperatureMessage" Text="" Margin="10" IsReadOnly="True" FontSize="300"></TextBox>
+            <TextBox Text="°C" FontSize="300"></TextBox>
         </StackPanel>
-        
-        <TextBox x:ConnectionId='1' x:Name="DebugMessage" Text="" Margin="10" IsReadOnly="True"></TextBox>
+
+        <!--<TextBox x:Name="DebugMessage" Text="" Margin="10" IsReadOnly="True"></TextBox>-->
     </Grid>
 </Page>
 
