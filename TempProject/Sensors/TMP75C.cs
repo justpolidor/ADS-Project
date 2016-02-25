@@ -25,7 +25,7 @@ namespace TempProject
             this.Temperature = temperature;
         }
     }
-
+    
     /**
         Classe che controlla il sensore Texas Instrument TMP75C 
         Per i reference al datasheet vedere : http://www.ti.com/lit/ds/symlink/tmp75c.pdf
